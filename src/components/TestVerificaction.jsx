@@ -2,16 +2,17 @@ import React from "react";
 import { WebVerification } from "vdid-sdk-web";
 
 const TestVerificaction = () => {
-   // SDK web
-   const vdid = new WebVerification("PUBLIC_API_KEY");
+   //Iniciar la instancia de la verificación
+   const vdid = new WebVerification("<--- Debe incluir el PUBLIC_API_KEY --->");
 
    const verificationEp = async () => {
+      // Llamada al EP createVerification
       const response = await fetch(
          "https://veridocid.azure-api.net/api/id/v2/createVerification",
          {
             method: "POST",
             headers: {
-               "x-api-key": "PRIVATE_API_KEY",
+               "x-api-key": "<--- Debe incluir el PRIVATE_API_KEY --->",
             },
             body: JSON.stringify({
                id: "test",
