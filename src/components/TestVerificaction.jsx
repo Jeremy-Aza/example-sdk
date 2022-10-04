@@ -3,22 +3,19 @@ import { WebVerification } from "vdid-sdk-web";
 
 const TestVerificaction = () => {
   //Iniciar la instancia de la verificación
-  const vdid = new WebVerification(
-    "pk_test_xINwWPFwmlL4P/8uV5XcaWdAERkQufMz3hLNCBcPxL4="
-  );
+  const vdid = new WebVerification("<-- PUBLIC API KEY -->");
 
   const verificationEp = async () => {
-    // Llamada al EP createVerification
+    // Llamada al endpoint para la creación de una nueva verificación
     const response = await fetch(
-      // "http://localhost:7072/api/createVerification",
       "https://veridocid.azure-api.net/api/id/v2/createVerification",
       {
         method: "POST",
         headers: {
-          "x-api-key": "sk_test_sjUb2g1/4ym/oZC2WVD7QySHG8UiZrmmkiXQJCY/EAs=",
+          "x-api-key": "<-- PRIVATE API KEY -->",
         },
         body: JSON.stringify({
-          id: "test-seon-sdk-6",
+          id: "test-verification-01",
           options: {
             checks: {
               selfie: true,
@@ -32,7 +29,7 @@ const TestVerificaction = () => {
 
     if (response.ok) {
       const uuidIdentifier = await response.text();
-      //Se obtiene el uuid y se pasa para poder crear la verificación
+      //Se obtiene el uuid y se implementa, para iniciar con el proceso de captura de imagenes
       vdid.verifyIdentity(uuidIdentifier);
     } else {
       const error = await response.json();
@@ -44,13 +41,6 @@ const TestVerificaction = () => {
     verificationEp();
   };
 
-  // const reload = () => {
-  //   const vdid = new WebVerification(
-  //     "pk_test_xINwWPFwmlL4P/8uV5XcaWdAERkQufMz3hLNCBcPxL4="
-  //   );
-  //   vdid.verifyIdentity("b566f294-92ce-4fd2-89ad-0aed618f8111");
-  // };
-
   return (
     <div>
       <h1>Bienvenido a la prueba de verificación</h1>
@@ -58,7 +48,6 @@ const TestVerificaction = () => {
       <button id="create" onClick={createVerification}>
         Crear Verificación
       </button>
-      {/* <button onClick={reload}>Re-construir</button> */}
     </div>
   );
 };

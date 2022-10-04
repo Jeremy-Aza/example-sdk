@@ -1,30 +1,16 @@
-# Getting Started with Create React App
+# DEMO SDK
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Este proyecto le permitira visualizar la implementación y el llamado del SDK sobre un proyecto de React JS.
 
-## Available Scripts
+## Pasos
 
-In the project directory, you can run:
+En el directorio del proyecto, debe hacer lo siguiente:
 
 ### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Ejecute el programa en modo desarrollador y abra el siguiente link [http://localhost:3000](http://localhost:3000) para ver en el navegador.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### `npm install`
 
-### `npm test`
+Instale las dependecias del proyecto.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
