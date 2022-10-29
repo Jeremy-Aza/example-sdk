@@ -5,29 +5,29 @@ const TestVerificaction = () => {
   //Iniciar la instancia de la verificación
   const vdid = new WebVerification("<-- PUBLIC API KEY -->");
 
-  const verificationEp = async () => {
+  const createVerification = async () => {
     // Llamada al endpoint para la creación de una nueva verificación
     const response = await fetch(
-      "https://veridocid.azure-api.net/api/id/v2/createVerification",
+      "https://veridocid.azure-api.net/api/id/v3/createVerification",
       {
-        method: "POST",
-        headers: {
-          "x-api-key": "<-- PRIVATE API KEY -->",
-        },
-        body: JSON.stringify({
-          id: "test-verification-01",
-          options: {
-            checks: {
-              selfie: true,
-              verifyIp: true,
-            },
-            redirect_url: "https://verificaciones.sumamexico.com/",
+      method: "POST",
+      headers: {
+        "x-api-key": "<-- PRIVATE API KEY -->",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        id: "testing: sdk_01",
+        options: {
+          checks: {
+            selfie: false,
+            verifyIp: false,
           },
-        }),
-      }
-    );
+          redirect_url: "https://verificaciones.sumamexico.com/",
+        },
+      }),
+    });
 
-    if (response.ok) {
+    if (response.ok) {      
       const uuidIdentifier = await response.text();
       //Se obtiene el uuid y se implementa, para iniciar con el proceso de captura de imagenes
       vdid.verifyIdentity(uuidIdentifier);
@@ -35,10 +35,6 @@ const TestVerificaction = () => {
       const error = await response.json();
       console.log("error", error);
     }
-  };
-
-  const createVerification = () => {
-    verificationEp();
   };
 
   return (
