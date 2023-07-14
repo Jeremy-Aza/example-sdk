@@ -3,7 +3,7 @@ import TestVerificaction from "./components/TestVerificaction";
 function App() {
   return (
     <div style={{ textAlign: "center" }}>
-      <TestVerificaction></TestVerificaction>
+      <TestVerificaction />
     </div>
   );
 }

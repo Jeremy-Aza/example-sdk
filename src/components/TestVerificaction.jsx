@@ -7,9 +7,7 @@ const TestVerificaction = () => {
 
   const createVerification = async () => {
     // Llamada al endpoint para la creación de una nueva verificación
-    const response = await fetch(
-      "https://veridocid.azure-api.net/api/id/v3/createVerification",
-      {
+    const response = await fetch("https://veridocid.azure-api.net/api/id/v3/createVerification", {
       method: "POST",
       headers: {
         "x-api-key": "<-- PRIVATE API KEY -->",
@@ -27,7 +25,7 @@ const TestVerificaction = () => {
       }),
     });
 
-    if (response.ok) {      
+    if (response.ok) {
       const uuidIdentifier = await response.text();
       //Se obtiene el uuid y se implementa, para iniciar con el proceso de captura de imagenes
       vdid.verifyIdentity(uuidIdentifier);
